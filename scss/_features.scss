@@ -1,0 +1,71 @@
+/*************/
+/* = FEATURES
+/************/
+.features-box {
+    // margin: 150px 104px;
+    margin: 150px 7.22vw;
+}
+
+.features {
+    border-radius: 14px;
+    box-shadow: 0px 0px 14px rgb(236, 234, 234);
+    margin-bottom: 30px;
+    color: $blue;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+
+    @media (min-width: $tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 32px;
+        min-height: 444px;
+        text-align: unset;
+    }
+
+    &__title {
+        color: $darkCyan;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 12px;
+        @media (max-width: 768px ) {
+            padding-top: 26px;
+        }
+    }
+
+    &__img {
+        max-width: 408px;
+        width: 50%;
+        padding-left: 6.66vw; //96px
+
+        @media (max-width: 768px ) {
+            padding-top: 26px;
+        }
+    }
+
+    &__body {
+
+        
+        @media (min-width: $tablet) {
+            padding-left: 6.25vw; //90px
+            max-width: 490px;
+        }
+
+        &--reverse {
+            order: -1;
+        }
+    }
+
+    &__description {
+        line-height: 28px;
+        @media (max-width: 768px ) {
+            padding-top: 26px;
+            padding-bottom: 26px;
+        }
+    }
+
+
+
+}

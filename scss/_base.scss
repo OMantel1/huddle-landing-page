@@ -1,0 +1,24 @@
+/*************/
+/* = BASE
+/************/
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 1440px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: $darkCyan;
+
+    @media (min-width: 425px ) {
+        font-size: 18px;
+    }
+}
+
+
+desktop-design {
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
+}

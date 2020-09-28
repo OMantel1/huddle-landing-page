@@ -1,0 +1,77 @@
+/*************/
+/* = PAGE HEAD
+/************/
+
+.logo {
+    width: 197px;
+    height: 30px;
+
+    @media (max-width: $tablet) {
+        width: 97px;
+        height: auto;
+    }
+}
+
+.page-head {
+    background: url("../images/bg-hero-desktop.svg");
+    background-color: hsl(193, 100%, 97%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    display: block;
+
+    @media (min-width: $tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.resume {
+    padding: 4.4vw 5.69vw 4.8vw 5.4vw;
+    // padding: 64px 82px 70px 78px;
+
+    &__body {
+        box-sizing: border-box;
+        padding-right: 58px;
+        padding-top: 12px;
+
+        @media (max-width: $tablet) {
+            padding: 0;
+            text-align: center;
+            padding-bottom: 32px;
+            margin-top: 80px;
+        }
+    }
+
+    &__title {
+        font-size: 2.2em;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__content {
+        margin: 28px 0 36px 0;
+        line-height: 28px;
+    }
+
+    &__img {
+        width: 100%;
+
+        @media (min-width: $tablet) {
+            min-width: 54.5%;
+        }
+    }
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.3vw 5.5vw 0 5.5vw;
+    // padding: 48px 80px 0 80px;
+}
