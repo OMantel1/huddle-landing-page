@@ -17,6 +17,7 @@
     background-color: hsl(193, 100%, 97%);
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 .wrapper {
@@ -37,6 +38,7 @@
         box-sizing: border-box;
         padding-right: 58px;
         padding-top: 12px;
+        animation: slide-from-left  1s , opacity-reveal 1s;
 
         @media (max-width: $tablet) {
             padding: 0;
@@ -60,6 +62,7 @@
 
     &__img {
         width: 100%;
+        animation: slide-from-right  1s , opacity-reveal 1s;
 
         @media (min-width: $tablet) {
             min-width: 54.5%;
@@ -74,4 +77,5 @@
     align-items: center;
     padding: 3.3vw 5.5vw 0 5.5vw;
     // padding: 48px 80px 0 80px;
+    animation: opacity-reveal 2000ms;
 }

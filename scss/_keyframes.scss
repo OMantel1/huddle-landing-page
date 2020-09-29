@@ -1,0 +1,19 @@
+/*************/
+/* = KEYFRAMES
+/************/
+
+
+@keyframes slide-from-right {
+    from {transform: translateX(300px)}
+    to {transform: translate(0px);}
+}
+
+@keyframes slide-from-left {
+    from {transform: translateX(-300px)}
+    to {transform: translate(0px);}
+}
+
+@keyframes opacity-reveal {
+    from {opacity: 0}
+    to {opacity: 1}
+}
