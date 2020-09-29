@@ -47,7 +47,7 @@ desktop-design {
   scale: 1;
   transition: all 150ms ease-in-out; }
   .btn:hover {
-    scale: 1.03; }
+    transform: scale(1.03); }
 
 .btn-primary {
   width: 280px;

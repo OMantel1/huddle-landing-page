@@ -11,7 +11,7 @@
     transition: all 150ms ease-in-out;
 
     &:hover {
-        scale: 1.03;
+        transform: scale(1.03);
     }
 }
 
