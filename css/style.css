@@ -86,7 +86,7 @@ desktop-design {
       height: auto; } }
 
 .page-head {
-  background: url("images/bg-hero-desktop.svg");
+  background: url("../images/bg-hero-desktop.svg");
   background-color: #f0fcff;
   background-repeat: no-repeat;
   background-size: cover; }
