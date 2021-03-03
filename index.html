@@ -2,165 +2,47 @@
 <html lang="en">
 
 <head>
-  <!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
-<script type="text/javascript" async=true>
-(function() {
-  var host = window.location.hostname;
-  var element = document.createElement('script');
-  var firstScript = document.getElementsByTagName('script')[0];
-  var url = 'https://quantcast.mgr.consensu.org'
-    .concat('/choice/', 'RytFwGC0FMTxe', '/', host, '/choice.js')
-  var uspTries = 0;
-  var uspTriesLimit = 3;
-  element.async = true;
-  element.type = 'text/javascript';
-  element.src = url;
+  
+  <script type="text/javascript" src="/tarteaucitron/tarteaucitron.js"></script>
 
-  firstScript.parentNode.insertBefore(element, firstScript);
+        <script type="text/javascript">
+        tarteaucitron.init({
+    	  "privacyUrl": "https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox", /* Privacy policy url */
 
-  function makeStub() {
-    var TCF_LOCATOR_NAME = '__tcfapiLocator';
-    var queue = [];
-    var win = window;
-    var cmpFrame;
+    	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+    	  "cookieName": "tarteaucitron", /* Cookie name */
+    
+    	  "orientation": "bottom", /* Banner position (top - middle) */
+                           
+    	  "showAlertSmall": false, /* Show the small banner on bottom right */
+    	  "cookieslist": false, /* Show the cookie list */
+                           
+          "closePopup": false, /* Show a close X on the banner */
 
-    function addFrame() {
-      var doc = win.document;
-      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+          "showIcon": true, /* Show cookie icon to manage cookies */
+          "iconPosition": "BottomLeft", /* BottomRight, BottomLeft, TopRight and TopLeft */
 
-      if (!otherCMP) {
-        if (doc.body) {
-          var iframe = doc.createElement('iframe');
+    	  "adblocker": false, /* Show a Warning if an adblocker is detected */
+                           
+          "DenyAllCta" : true, /* Show the deny all button */
+          "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+          "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
+                           
+    	  "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
 
-          iframe.style.cssText = 'display:none';
-          iframe.name = TCF_LOCATOR_NAME;
-          doc.body.appendChild(iframe);
-        } else {
-          setTimeout(addFrame, 5);
-        }
-      }
-      return !otherCMP;
-    }
+    	  "removeCredit": true, /* Remove credit link */
+    	  "moreInfoLink": true, /* Show more info link */
 
-    function tcfAPIHandler() {
-      var gdprApplies;
-      var args = arguments;
+          "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+          "useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */
 
-      if (!args.length) {
-        return queue;
-      } else if (args[0] === 'setGdprApplies') {
-        if (
-          args.length > 3 &&
-          args[2] === 2 &&
-          typeof args[3] === 'boolean'
-        ) {
-          gdprApplies = args[3];
-          if (typeof args[2] === 'function') {
-            args[2]('set', true);
-          }
-        }
-      } else if (args[0] === 'ping') {
-        var retr = {
-          gdprApplies: gdprApplies,
-          cmpLoaded: false,
-          cmpStatus: 'stub'
-        };
+    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+                          
+          "readmoreLink": "", /* Change the default readmore link */
 
-        if (typeof args[2] === 'function') {
-          args[2](retr);
-        }
-      } else {
-        queue.push(args);
-      }
-    }
-
-    function postMessageEventHandler(event) {
-      var msgIsString = typeof event.data === 'string';
-      var json = {};
-
-      try {
-        if (msgIsString) {
-          json = JSON.parse(event.data);
-        } else {
-          json = event.data;
-        }
-      } catch (ignore) {}
-
-      var payload = json.__tcfapiCall;
-
-      if (payload) {
-        window.__tcfapi(
-          payload.command,
-          payload.version,
-          function(retValue, success) {
-            var returnMsg = {
-              __tcfapiReturn: {
-                returnValue: retValue,
-                success: success,
-                callId: payload.callId
-              }
-            };
-            if (msgIsString) {
-              returnMsg = JSON.stringify(returnMsg);
-            }
-            if (event && event.source && event.source.postMessage) {
-              event.source.postMessage(returnMsg, '*');
-            }
-          },
-          payload.parameter
-        );
-      }
-    }
-
-    while (win) {
-      try {
-        if (win.frames[TCF_LOCATOR_NAME]) {
-          cmpFrame = win;
-          break;
-        }
-      } catch (ignore) {}
-
-      if (win === window.top) {
-        break;
-      }
-      win = win.parent;
-    }
-    if (!cmpFrame) {
-      addFrame();
-      win.__tcfapi = tcfAPIHandler;
-      win.addEventListener('message', postMessageEventHandler, false);
-    }
-  };
-
-  makeStub();
-
-  var uspStubFunction = function() {
-    var arg = arguments;
-    if (typeof window.__uspapi !== uspStubFunction) {
-      setTimeout(function() {
-        if (typeof window.__uspapi !== 'undefined') {
-          window.__uspapi.apply(window.__uspapi, arg);
-        }
-      }, 500);
-    }
-  };
-
-  var checkIfUspIsReady = function() {
-    uspTries++;
-    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
-      console.warn('USP is not accessible');
-    } else {
-      clearInterval(uspInterval);
-    }
-  };
-
-  if (typeof window.__uspapi === 'undefined') {
-    window.__uspapi = uspStubFunction;
-    var uspInterval = setInterval(checkIfUspIsReady, 6000);
-  }
-})();
-</script>
-<!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+          "mandatory": true, /* Show a message about mandatory cookies */
+        });
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
@@ -292,33 +174,4 @@
     </p> -->
   </footer>
 </body>
-
-<footer>
-    <!-- Quantcast Tag -->
-  <script type="text/javascript">
-  var _qevents = _qevents || [];
-
-  (function() {
-  var elem = document.createElement('script');
-  elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
-  elem.async = true;
-  elem.type = "text/javascript";
-  var scpt = document.getElementsByTagName('script')[0];
-  scpt.parentNode.insertBefore(elem, scpt);
-  })();
-
-  _qevents.push({
-  qacct:"p-RytFwGC0FMTxe",
-  uid:"oliviermantel@gmail.com"
-  });
-  </script>
-
-  <noscript>
-  <div style="display:none;">
-  <img src="//pixel.quantserve.com/pixel/p-RytFwGC0FMTxe.gif" border="0" height="1" width="1" alt="Quantcast"/>
-  </div>
-  </noscript>
-  <!-- End Quantcast tag -->
-</footer>
-
 </html>
