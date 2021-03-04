@@ -42,6 +42,10 @@
 
           "mandatory": true, /* Show a message about mandatory cookies */
         });
+          
+        tarteaucitron.user.gtagUa = 'UA-XXXXXXXX-X';
+        tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
