@@ -5,11 +5,16 @@
   
   <script type="text/javascript" src="https://tarteaucitron.io/load.js?domain=huddle-landing-page-flax.vercel.app&uuid=ccdf8bdb6c2a9a5297f7d6735674b68751d35c47">
   </script>
-  <script>
-     tarteaucitron.user.gtagUa = 'UA-XXXXXXXX-X';
-        tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
-        (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-XXXXXXXX-X');
+
+  // your optionnal gtag()
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
